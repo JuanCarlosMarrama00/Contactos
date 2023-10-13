@@ -16,8 +16,11 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
+    'insertar_contacto' => [[], ['_controller' => 'App\\Controller\\ContactoController::insertar'], [], [['text', '/contacto/insertar']], [], [], []],
+    'eliminar_contacto' => [['id'], ['_controller' => 'App\\Controller\\ContactoController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/contacto/delete']], [], [], []],
     'app_contacto' => [['codigo'], ['_controller' => 'App\\Controller\\ContactoController::ficha'], [], [['variable', '/', '[^/]++', 'codigo', true], ['text', '/contacto']], [], [], []],
     'buscar_contacto' => [['texto'], ['_controller' => 'App\\Controller\\ContactoController::buscar'], [], [['variable', '/', '[^/]++', 'texto', true], ['text', '/contacto/buscar']], [], [], []],
+    'modificar_contacto' => [['id', 'nombre'], ['_controller' => 'App\\Controller\\ContactoController::update'], [], [['variable', '/', '[^/]++', 'nombre', true], ['variable', '/', '[^/]++', 'id', true], ['text', '/contacto/update']], [], [], []],
     'app_page' => [[], ['_controller' => 'App\\Controller\\PageController::index'], [], [['text', '/page']], [], [], []],
     'Inicio' => [[], ['_controller' => 'App\\Controller\\PageController::inicio'], [], [['text', '/']], [], [], []],
 ];
