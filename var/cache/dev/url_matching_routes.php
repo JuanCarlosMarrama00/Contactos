@@ -15,6 +15,7 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/contacto/insertar' => [[['_route' => 'insertar_contacto', '_controller' => 'App\\Controller\\ContactoController::insertar'], null, null, null, false, false, null]],
+        '/contacto/insertarSinProvincia' => [[['_route' => 'insertar_sin_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarSinProvincia'], null, null, null, false, false, null]],
         '/page' => [[['_route' => 'app_page', '_controller' => 'App\\Controller\\PageController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'Inicio', '_controller' => 'App\\Controller\\PageController::inicio'], null, null, null, false, false, null]],
     ],
@@ -40,6 +41,7 @@ return [
                     .'|([^/]++)(*:213)'
                     .'|buscar/([^/]++)(*:236)'
                     .'|update/([^/]++)/([^/]++)(*:268)'
+                    .'|insertarConProvincia(*:296)'
                 .')'
             .')/?$}sDu',
     ],
@@ -54,8 +56,9 @@ return [
         197 => [[['_route' => 'eliminar_contacto', '_controller' => 'App\\Controller\\ContactoController::delete'], ['id'], null, null, false, true, null]],
         213 => [[['_route' => 'app_contacto', '_controller' => 'App\\Controller\\ContactoController::ficha'], ['codigo'], null, null, false, true, null]],
         236 => [[['_route' => 'buscar_contacto', '_controller' => 'App\\Controller\\ContactoController::buscar'], ['texto'], null, null, false, true, null]],
-        268 => [
-            [['_route' => 'modificar_contacto', '_controller' => 'App\\Controller\\ContactoController::update'], ['id', 'nombre'], null, null, false, true, null],
+        268 => [[['_route' => 'modificar_contacto', '_controller' => 'App\\Controller\\ContactoController::update'], ['id', 'nombre'], null, null, false, true, null]],
+        296 => [
+            [['_route' => 'insertar_con_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarConProvincia'], [], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
