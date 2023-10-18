@@ -975,6 +975,6 @@ class Theme {
         return hash >>> 0;
     }
 }
-", "@WebProfiler/Collector/time.js", "/home/alumno/Contactos/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.js");
+", "@WebProfiler/Collector/time.js", "/home/alumno/Contactos/Contactos/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.js");
     }
 }

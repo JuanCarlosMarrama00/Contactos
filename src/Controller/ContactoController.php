@@ -89,6 +89,14 @@ class ContactoController extends AbstractController
         return $this->render('ficha_contacto.html.twig', ['contacto' => $contacto]);
     }
 
+    #[Route('/contacto', name: 'app_contacto')]
+    public function index(): Response
+    {
+        return $this->render('inicio.html.twig', [
+            'controller_name' => 'ContactoController',
+        ]);
+    }
+
     #[Route('/contacto/buscar/{texto}', name: 'buscar_contacto')]
     public function buscar(ManagerRegistry $doctrine ,$texto): Response
     {

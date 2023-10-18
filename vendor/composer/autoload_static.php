@@ -543,7 +543,13 @@ class ComposerStaticInit8e3fd8eb7875194d1d98afacc5578f77
     );
 
     public static $classMap = array (
+        'App\\Controller\\ContactoController' => __DIR__ . '/../..' . '/src/Controller/ContactoController.php',
+        'App\\Controller\\PageController' => __DIR__ . '/../..' . '/src/Controller/PageController.php',
+        'App\\Entity\\Contacto' => __DIR__ . '/../..' . '/src/Entity/Contacto.php',
+        'App\\Entity\\Provincia' => __DIR__ . '/../..' . '/src/Entity/Provincia.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\ContactoRepository' => __DIR__ . '/../..' . '/src/Repository/ContactoRepository.php',
+        'App\\Repository\\ProvinciaRepository' => __DIR__ . '/../..' . '/src/Repository/ProvinciaRepository.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

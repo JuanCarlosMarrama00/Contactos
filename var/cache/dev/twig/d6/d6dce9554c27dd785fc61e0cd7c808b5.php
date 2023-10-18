@@ -1828,6 +1828,6 @@ class __TwigTemplate_d378b6ab6ed0b82a765c4d2c6992e37d extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/home/alumno/Contactos/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/home/alumno/Contactos/Contactos/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
     }
 }
