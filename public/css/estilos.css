@@ -6,4 +6,40 @@ body
 h1
 {
     border-bottom: 1px solid black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+form{
+    margin:30px 5px 5px 15px;
+}
+
+input[type="text"] {
+    margin:7px 5px 5px 7px;
+    width: 80%;
+    border-radius: 5px;
+    display: block;
+}
+
+input[type="text"]:hover {
+    box-shadow: 2px 2px 2px;
+}
+
+input[type="email"] {
+    margin:7px 5px 5px 7px;
+    width: 80%;
+    border-radius: 5px;
+    display: block;
+}
+
+input[type="email"]:hover {
+    box-shadow: 2px 2px 2px;
+}
+
+select{
+    margin: 5px;
+    width: 70%;
+}
+
+button[type="submit"]{
+    border-radius: 15px;
 }

@@ -56,16 +56,16 @@ class __TwigTemplate_3cef8b7cc1016d2ae9c30bff53b6e7ed extends Template
         ";
         // line 7
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 10
+        // line 11
         echo "    </head>
     <body>
         ";
-        // line 12
-        $this->displayBlock('body', $context, $blocks);
         // line 13
+        $this->displayBlock('body', $context, $blocks);
+        // line 14
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 14
+        // line 15
         echo "    </body>
 </html>
 ";
@@ -107,7 +107,9 @@ class __TwigTemplate_3cef8b7cc1016d2ae9c30bff53b6e7ed extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 8
-        echo "            <link rel=\"stylesheet\" href=\"";
+        echo "            <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">
+            <link rel=\"stylesheet\" href=\"";
+        // line 9
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/estilos.css"), "html", null, true);
         echo "\"/>
         ";
@@ -119,7 +121,7 @@ class __TwigTemplate_3cef8b7cc1016d2ae9c30bff53b6e7ed extends Template
 
     }
 
-    // line 12
+    // line 13
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -137,7 +139,7 @@ class __TwigTemplate_3cef8b7cc1016d2ae9c30bff53b6e7ed extends Template
 
     }
 
-    // line 13
+    // line 14
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -162,7 +164,7 @@ class __TwigTemplate_3cef8b7cc1016d2ae9c30bff53b6e7ed extends Template
 
     public function getDebugInfo()
     {
-        return array (  141 => 13,  123 => 12,  110 => 8,  100 => 7,  81 => 6,  69 => 14,  66 => 13,  64 => 12,  60 => 10,  58 => 7,  54 => 6,  47 => 1,);
+        return array (  143 => 14,  125 => 13,  113 => 9,  110 => 8,  100 => 7,  81 => 6,  69 => 15,  66 => 14,  64 => 13,  60 => 11,  58 => 7,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -174,6 +176,7 @@ class __TwigTemplate_3cef8b7cc1016d2ae9c30bff53b6e7ed extends Template
          <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+            <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">
             <link rel=\"stylesheet\" href=\"{{ asset('css/estilos.css') }}\"/>
         {% endblock %}
     </head>

@@ -15,7 +15,10 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/contacto/insertar' => [[['_route' => 'insertar_contacto', '_controller' => 'App\\Controller\\ContactoController::insertar'], null, null, null, false, false, null]],
+        '/contacto/nuevo' => [[['_route' => 'nuevo_contacto', '_controller' => 'App\\Controller\\ContactoController::nuevo'], null, null, null, false, false, null]],
         '/contacto/insertarSinProvincia' => [[['_route' => 'insertar_sin_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarSinProvincia'], null, null, null, false, false, null]],
+        '/contacto' => [[['_route' => 'app_contacto', '_controller' => 'App\\Controller\\ContactoController::index'], null, null, null, false, false, null]],
+        '/contacto/insertarConProvincia' => [[['_route' => 'insertar_con_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarConProvincia'], null, null, null, false, false, null]],
         '/page' => [[['_route' => 'app_page', '_controller' => 'App\\Controller\\PageController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'Inicio', '_controller' => 'App\\Controller\\PageController::inicio'], null, null, null, false, false, null]],
     ],
@@ -37,11 +40,10 @@ return [
                     .')'
                 .')'
                 .'|/contacto/(?'
-                    .'|delete/([^/]++)(*:197)'
-                    .'|([^/]++)(*:213)'
-                    .'|buscar/([^/]++)(*:236)'
-                    .'|update/([^/]++)/([^/]++)(*:268)'
-                    .'|insertarConProvincia(*:296)'
+                    .'|editar/([^/]++)(*:197)'
+                    .'|delete/([^/]++)(*:220)'
+                    .'|buscar/([^/]++)(*:243)'
+                    .'|update/([^/]++)/([^/]++)(*:275)'
                 .')'
             .')/?$}sDu',
     ],
@@ -53,12 +55,11 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        197 => [[['_route' => 'eliminar_contacto', '_controller' => 'App\\Controller\\ContactoController::delete'], ['id'], null, null, false, true, null]],
-        213 => [[['_route' => 'app_contacto', '_controller' => 'App\\Controller\\ContactoController::ficha'], ['codigo'], null, null, false, true, null]],
-        236 => [[['_route' => 'buscar_contacto', '_controller' => 'App\\Controller\\ContactoController::buscar'], ['texto'], null, null, false, true, null]],
-        268 => [[['_route' => 'modificar_contacto', '_controller' => 'App\\Controller\\ContactoController::update'], ['id', 'nombre'], null, null, false, true, null]],
-        296 => [
-            [['_route' => 'insertar_con_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarConProvincia'], [], null, null, false, false, null],
+        197 => [[['_route' => 'editar_contacto', '_controller' => 'App\\Controller\\ContactoController::editar'], ['codigo'], null, null, false, true, null]],
+        220 => [[['_route' => 'eliminar_contacto', '_controller' => 'App\\Controller\\ContactoController::delete'], ['id'], null, null, false, true, null]],
+        243 => [[['_route' => 'buscar_contacto', '_controller' => 'App\\Controller\\ContactoController::buscar'], ['texto'], null, null, false, true, null]],
+        275 => [
+            [['_route' => 'modificar_contacto', '_controller' => 'App\\Controller\\ContactoController::update'], ['id', 'nombre'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
