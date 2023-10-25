@@ -4,6 +4,8 @@
     <h1>Ficha del contacto</h1>
     {% if contacto %}
         {{include ('partials/datos_contacto.html.twig', {'contacto':contacto})}}
+        <a href="{{ path('editar_contacto', {'contacto':contacto, 'codigo': contacto.id}) }}" class="btn">Editar</a>
+        <a href="{{ path('eliminar_contacto', {'contacto':contacto, 'id': contacto.id}) }}" class="btn">Eliminar</a>
     {% else %}
         <p>Contacto no encontrado</p>
     {% endif %}

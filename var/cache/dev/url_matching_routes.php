@@ -17,10 +17,14 @@ return [
         '/contacto/insertar' => [[['_route' => 'insertar_contacto', '_controller' => 'App\\Controller\\ContactoController::insertar'], null, null, null, false, false, null]],
         '/contacto/nuevo' => [[['_route' => 'nuevo_contacto', '_controller' => 'App\\Controller\\ContactoController::nuevo'], null, null, null, false, false, null]],
         '/contacto/insertarSinProvincia' => [[['_route' => 'insertar_sin_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarSinProvincia'], null, null, null, false, false, null]],
-        '/contacto' => [[['_route' => 'app_contacto', '_controller' => 'App\\Controller\\ContactoController::index'], null, null, null, false, false, null]],
-        '/contacto/insertarConProvincia' => [[['_route' => 'insertar_con_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarConProvincia'], null, null, null, false, false, null]],
+        '/' => [
+            [['_route' => 'app_index', '_controller' => 'App\\Controller\\ContactoController::index'], null, null, null, false, false, null],
+            [['_route' => 'Inicio', '_controller' => 'App\\Controller\\PageController::inicio'], null, null, null, false, false, null],
+        ],
         '/page' => [[['_route' => 'app_page', '_controller' => 'App\\Controller\\PageController::index'], null, null, null, false, false, null]],
-        '/' => [[['_route' => 'Inicio', '_controller' => 'App\\Controller\\PageController::inicio'], null, null, null, false, false, null]],
+        '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
+        '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
+        '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -42,8 +46,10 @@ return [
                 .'|/contacto/(?'
                     .'|editar/([^/]++)(*:197)'
                     .'|delete/([^/]++)(*:220)'
-                    .'|buscar/([^/]++)(*:243)'
-                    .'|update/([^/]++)/([^/]++)(*:275)'
+                    .'|([^/]++)(*:236)'
+                    .'|buscar/([^/]++)(*:259)'
+                    .'|update/([^/]++)/([^/]++)(*:291)'
+                    .'|insertarConProvincia(*:319)'
                 .')'
             .')/?$}sDu',
     ],
@@ -57,9 +63,11 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         197 => [[['_route' => 'editar_contacto', '_controller' => 'App\\Controller\\ContactoController::editar'], ['codigo'], null, null, false, true, null]],
         220 => [[['_route' => 'eliminar_contacto', '_controller' => 'App\\Controller\\ContactoController::delete'], ['id'], null, null, false, true, null]],
-        243 => [[['_route' => 'buscar_contacto', '_controller' => 'App\\Controller\\ContactoController::buscar'], ['texto'], null, null, false, true, null]],
-        275 => [
-            [['_route' => 'modificar_contacto', '_controller' => 'App\\Controller\\ContactoController::update'], ['id', 'nombre'], null, null, false, true, null],
+        236 => [[['_route' => 'app_contacto', '_controller' => 'App\\Controller\\ContactoController::ficha'], ['codigo'], null, null, false, true, null]],
+        259 => [[['_route' => 'buscar_contacto', '_controller' => 'App\\Controller\\ContactoController::buscar'], ['texto'], null, null, false, true, null]],
+        291 => [[['_route' => 'modificar_contacto', '_controller' => 'App\\Controller\\ContactoController::update'], ['id', 'nombre'], null, null, false, true, null]],
+        319 => [
+            [['_route' => 'insertar_con_provincia_contacto', '_controller' => 'App\\Controller\\ContactoController::insertarConProvincia'], [], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

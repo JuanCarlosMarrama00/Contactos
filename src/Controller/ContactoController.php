@@ -9,12 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Contacto;
 use App\Entity\Provincia;
+use App\Entity\User;
 use App\Form\ContactoType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ContactoController extends AbstractController
 {
@@ -85,7 +88,7 @@ class ContactoController extends AbstractController
                 $entityManager = $doctrine->getManager();
                 $entityManager->persist($contacto);
                 $entityManager->flush();
-                return $this->redirectToRoute('ficha_contacto.html.twig', ["codigo" => $contacto->getId(), "contacto" => $contacto]);
+                return $this->redirectToRoute('app_index');
             }
 
             return $this->render('editar.html.twig', array('formulario' => $formulario->createView()));
@@ -135,18 +138,30 @@ class ContactoController extends AbstractController
     }
 
     #[Route('/contacto/{codigo}', name: 'app_contacto')]
-    public function ficha(ManagerRegistry $doctrine, $codigo): Response
+    public function ficha(ManagerRegistry $doctrine, $codigo, SessionInterface $session, Request $request): Response
     {
-        $repositorio = $doctrine->getRepository(Contacto::class);
-        $contacto = $repositorio->find($codigo);
-        return $this->render('ficha_contacto.html.twig', ['contacto' => $contacto]);
+        $user = $this->getUser();
+
+        if ($user) {
+            $repositorio = $doctrine->getRepository(Contacto::class);
+            $contacto = $repositorio->find($codigo);
+
+            return $this->render('ficha_contacto.html.twig', ['contacto' => $contacto]);
+        } else {
+            //Esto se hace para que cuando no se haya logueado, se proceda a crear una sesion, para que a la hora de hacer el login, nos redirija aquí.
+            $url = parse_url($request->getUri());
+            $session->set('url', $url['path']);
+            return $this->redirectToRoute('app_login');
+        }
     }
 
-    #[Route('/contacto', name: 'app_contacto')]
-    public function index(): Response
+    #[Route('/', name: 'app_index')]
+    public function index(ManagerRegistry $doctrine): Response
     {
-        return $this->render('inicio.html.twig', [
-            'controller_name' => 'ContactoController',
+        $repositorio = $doctrine->getRepository(Contacto::class);
+        $contactos = $repositorio->findAll();
+        return $this->render('lista_contactos.html.twig', [
+            'controller_name' => 'ContactoController', 'contactos' => $contactos,
         ]);
     }
 

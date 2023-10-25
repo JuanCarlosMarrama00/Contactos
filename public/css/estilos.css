@@ -43,3 +43,19 @@ select{
 button[type="submit"]{
     border-radius: 15px;
 }
+
+.btn{
+    background-color: #b4b6b4;
+    padding: 5px;
+    margin-left: 10px;
+    border-color: #b4b6b4;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background-color: #727472;
+    color: white;
+    box-shadow: 2px 2px 2px black;
+    border-color: #727272;
+    border-radius: 5px;
+}

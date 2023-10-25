@@ -1,5 +1,5 @@
     <ul>
-        <li><strong>{{ contacto.nombre}}</strong></li>
+        <li><a href="{{ path('app_contacto', {'contacto':contacto, 'codigo': contacto.id}) }}">{{ contacto.nombre}}</a></li>
         <li><strong>Teléfono: </strong>{{ contacto.telefono}}</li>
         <li><strong>Correo: </strong>{{ contacto.email}}</li>
         {% if contacto.provincia.id > 0 %}
